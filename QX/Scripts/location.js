@@ -13,4 +13,4 @@ var ip = obj['query'];
 //var description = obj['country'] + '\n' + obj['city'] + '\n' + obj['isp'] + '\n' + obj['countryCode'];
 
 
-$done({title, subtitle, ip, description});
+$done({title, subtitle, ip});
