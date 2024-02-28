@@ -8,9 +8,9 @@ if ($response.statusCode != 200) {
 var body = $response.body;
 var obj = JSON.parse(body);
 var title = obj['country'];
-var subtitle = obj['city'] + ' ' + obj['isp'];
+var subtitle = obj['city'] + ':' + obj['isp'];
 var ip = obj['query'];
-//var description = obj['country'] + '\n' + obj['city'] + '\n' + obj['isp'] + '\n' + obj['countryCode'];
+var description = obj['country'] + '\n' + obj['city'] + '\n' + obj['isp'] + '\n' + obj['query'];
 
 
-$done({title, subtitle, ip});
+$done({title, subtitle, ip, description});
