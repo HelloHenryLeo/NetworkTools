@@ -1,0 +1,14 @@
+#!name= QSearch
+#!desc= 🧰快捷转化搜索引擎 g -> google bd -> baidu
+#!author= HenryLeo
+#!homepage= https://github.com/HiHenryLeo
+#!icon= https://raw.githubusercontent.com/HiHenryLeo/NetworkTools/main/Loon/Icons/QSearch.PNG
+
+[Rewrite]
+#bing -> google
+^https://(cn|www)\.bing\.com/search\?q=g\+([^&]+)&form=(.+) 302 https://www.google.com/search?q=$2
+#bing -> baidu
+^https://(cn|www)\.bing\.com/search\?q=bd\+([^&]+)&form=(.+) 302 https://m.baidu.com/s?from=$3&word=$2
+
+[MITM]
+hostname = cn.bing.com,www.bing.com
