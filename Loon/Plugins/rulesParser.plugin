@@ -1,0 +1,11 @@
+#!name= rulesParser
+#!desc= 🧰规则解析器 QX -> Loon
+#!author= HenryLeo
+#!homepage= https://github.com/HiHenryLeo
+#!icon= https://raw.githubusercontent.com/HiHenryLeo/NetworkTools/main/Loon/Icons/QSearch.PNG
+
+[Script]
+http-response ^https://raw\.githubusercontent\.com/RuCu6/QuanX/main/Rules/MyBlockAds\.list script-path=rulesParser.js, requires-body=true, timeout=10, enabled=false, tag=rulesParser
+
+[MITM]
+hostname = raw.githubusercontent.com
