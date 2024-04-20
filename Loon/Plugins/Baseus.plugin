@@ -1,0 +1,18 @@
+#!name= Baseus
+#!desc= 控制拒绝内容
+#!homepage= 插件首页，可在插件页面进行跳转
+#!icon= 插件的图标
+#!author = HenryLeo
+#!select = 拒绝服务,是,否
+#!select = 拒绝消息,是,否
+#!select = 拒绝横幅,是,否
+#!select = 拒绝商店,是,否
+
+[rewrite]
+^https://bds\-api\-cn\.baseus\.cn/doc/services reject-200
+^https://bds\-api\-cn\.baseus\.cn/app/appMessageTip/messageType reject-200
+^https://bds\-api\-cn\.baseus\.cn/app/homepage/index reject-200
+^https://bds\-api\-cn\.baseus\.cn/app/homepage/getMallHomeIcon\? reject-200
+
+[mitm]
+hostname = bds-api-cn.baseus.cn
