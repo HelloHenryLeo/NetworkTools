@@ -1,7 +1,7 @@
 {
   "log": {
     "disabled": true,
-    "level": "info",
+    "level": "debug",
     "output": "box.log",
     "timestamp": true
   },
@@ -62,22 +62,19 @@
         "server": "dns_direct"
       },
       {
-        "rule_set": "geoip-cn",
+        "rule_set": "geosite-cn",
         "server": "dns_direct"
       }
     ],
-    "final": "dns_proxy",
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15"
-    }
+    "final": "dns_proxy"
   },
   "inbounds": [
     {
       "type": "tun",
       "inet4_address": "198.18.0.1/16",
       "auto_route": true,
-      "sniff": true
+      "sniff": true,
+      "stack": "mixed"
     }
   ],
   "outbounds": [
@@ -242,7 +239,6 @@
       }
     ],
     "final": "sing-box",
-    "find_process": true,
     "auto_detect_interface": true
   }
 }
