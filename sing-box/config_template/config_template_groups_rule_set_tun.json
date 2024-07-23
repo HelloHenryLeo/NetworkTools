@@ -32,10 +32,6 @@
         "disable_cache": true
       },
       {
-        "rule_set": "geosite-apple",
-        "server": "localDns"
-      },
-      {
         "rule_set": "gfw",
         "server": "proxyDns"
       },
@@ -208,10 +204,6 @@
         "outbound": "direct"
       },
       {
-        "rule_set": ["geoip-apple", "geosite-apple"],
-        "outbound": "direct"
-      },
-      {
         "rule_set": "gfw",
         "outbound": "Master"
       },
@@ -227,20 +219,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://adrules.top/adrules-singbox.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geoip-apple",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/apple.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-apple",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple.srs",
         "download_detour": "direct"
       },
       {
