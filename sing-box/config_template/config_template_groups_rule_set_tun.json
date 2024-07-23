@@ -196,7 +196,7 @@
       {
         "protocol": "quic",
         "outbound": "AdBlock"
-      },
+      }
     ],
     "rule_set": [
       {
