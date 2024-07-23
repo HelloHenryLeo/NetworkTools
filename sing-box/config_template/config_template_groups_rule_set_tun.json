@@ -23,7 +23,7 @@
     ],
     "rules": [
       {
-        "rule_set": "geosite-category-ads-all",
+        "rule_set": "adrules",
         "server": "block"
       },
       {
@@ -167,7 +167,7 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "Master",
+    "final": "direct",
     "rules": [
       {
         "type": "logical",
@@ -183,7 +183,7 @@
         "outbound": "dns-out"
       },
       {
-        "rule_set": "geosite-category-ads-all",
+        "rule_set": "adrules",
         "outbound": "AdBlock"
       },
       {
@@ -212,20 +212,21 @@
         "outbound": "direct"
       },
       {
-        "rule_set": ["geoip-cn", "geosite-cn"],
-        "outbound": "direct"
+        "rule_set": "gfw",
+        "outbound": "Master"
       },
       {
-        "protocol": "quic",
-        "outbound": "AdBlock"
+        "rule_set": "geoip-cn",
+        "invert": true,
+        "outbound": "Master"
       }
     ],
     "rule_set": [
       {
-        "tag": "geosite-category-ads-all",
+        "tag": "adrules",
         "type": "remote",
         "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
+        "url": "https://adrules.top/adrules-singbox.srs",
         "download_detour": "direct"
       },
       {
@@ -246,15 +247,15 @@
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
-        "download_detour": "direct"
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "download_detour": "Master"
       },
       {
-        "tag": "geosite-cn",
+        "tag": "gfw",
         "type": "remote",
         "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
-        "download_detour": "direct"
+        "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/gfw.srs",
+        "download_detour": "Master"
       }
     ]
   }
