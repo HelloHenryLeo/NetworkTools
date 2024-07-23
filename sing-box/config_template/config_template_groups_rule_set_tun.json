@@ -77,7 +77,7 @@
       "outbounds":[
         "hk",
         "tw",
-        "sg"
+        "sg",
         "Proxy",
         "direct",
         "block"
