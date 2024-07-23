@@ -23,7 +23,7 @@
       {
         "tag": "proxyDns",
         "address": "tls://8.8.8.8",
-        "detour": "Proxy"
+        "detour": "Master"
       },
       {
         "tag": "localDns",
@@ -191,7 +191,7 @@
       },
       {
         "clash_mode": "global",
-        "outbound": "Proxy"
+        "outbound": "Master"
       },
       {
         "domain": [
