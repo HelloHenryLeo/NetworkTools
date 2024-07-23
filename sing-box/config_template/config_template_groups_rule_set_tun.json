@@ -4,20 +4,6 @@
     "level": "info",
     "timestamp": true
   },
-  "experimental": {
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "secret": "",
-      "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "default_mode": "rule"
-    },
-  "cache_file": {
-    "enabled": true,
-    "store_fakeip": false
-    }
-  },
   "dns": {
     "servers": [
       {
@@ -46,9 +32,13 @@
         "disable_cache": true
       },
       {
-        "rule_set": "geosite-cn",
+        "rule_set": "geosite-apple",
         "server": "localDns"
       },   
+      {
+        "rule_set": "geosite-cn",
+        "server": "localDns"
+      },
       {
         "clash_mode": "direct",
         "server": "localDns"
@@ -70,14 +60,7 @@
       "strict_route": true,
       "sniff": true,
       "endpoint_independent_nat": false,
-      "stack": "system",
-      "platform": {
-        "http_proxy": {
-          "enabled": true,
-          "server": "127.0.0.1",
-          "server_port": 2080
-        }
-      }
+      "stack": "system"
     },
     {
       "type": "mixed",
