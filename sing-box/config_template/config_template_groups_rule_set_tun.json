@@ -79,7 +79,8 @@
         "sg",
         "jp",
         "us",
-        "Proxy",
+        "Others-Proxy",
+        "All-Proxy",
         "direct",
         "block"
       ]
@@ -143,7 +144,17 @@
       ]
     },
     {
-      "tag":"Proxy",
+      "tag":"Others-Proxy",
+      "type":"selector",
+      "outbounds":[
+        "{all}"
+      ],
+      "filter":[
+        {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"]}
+      ]
+    },
+    {
+      "tag":"All-Proxy",
       "type":"selector",
       "outbounds":[
         "{all}",
