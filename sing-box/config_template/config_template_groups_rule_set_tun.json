@@ -66,8 +66,7 @@
       "type": "mixed",
       "listen": "127.0.0.1",
       "listen_port": 2080,
-      "sniff": true,
-      "users": []
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -81,22 +80,6 @@
         "Proxy",
         "direct",
         "block"
-      ]
-    },
-    {
-      "tag":"Proxy",
-      "type":"selector",
-      "outbounds":[
-        "{all}",
-        "block"
-      ]
-    },
-    {
-      "tag":"AdBlock",
-      "type":"selector",
-      "outbounds":[
-        "block",
-        "direct"
       ]
     },
     {
@@ -127,6 +110,22 @@
       ],
       "filter":[
         {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
+      ]
+    },
+    {
+      "tag":"AdBlock",
+      "type":"selector",
+      "outbounds":[
+        "block",
+        "direct"
+      ]
+    },
+    {
+      "tag":"Proxy",
+      "type":"selector",
+      "outbounds":[
+        "{all}",
+        "block"
       ]
     },
     {
