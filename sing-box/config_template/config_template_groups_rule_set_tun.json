@@ -101,12 +101,8 @@
       "tag":"Netflix",
       "type":"selector",
       "outbounds":[
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
+        "auto",
+        "{all}"
       ]
     },
     {
@@ -114,12 +110,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
+        "Master"
       ]
     },
     {
@@ -127,7 +118,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
-        "Proxy"
+        "Master"
       ]
     },
     {
