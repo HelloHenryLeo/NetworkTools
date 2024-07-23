@@ -75,17 +75,18 @@
       "tag":"Master",
       "type":"selector",
       "outbounds":[
-        "auto",
+        "hk",
+        "tw",
+        "sg"
+        "Proxy",
         "direct",
-        "{all}",
         "block"
       ]
     },
     {
-      "tag":"Netflix",
+      "tag":"Proxy",
       "type":"selector",
       "outbounds":[
-        "auto",
         "{all}",
         "block"
       ]
@@ -99,10 +100,33 @@
       ]
     },
     {
-      "tag":"auto",
+      "tag":"hk",
       "type":"urltest",
       "outbounds":[
         "{all}"
+      ],
+      "filter":[
+        {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
+      ]
+    },
+    {
+      "tag":"tw",
+      "type":"urltest",
+      "outbounds":[
+        "{all}"
+      ],
+      "filter":[
+        {"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}
+      ]
+    },
+    {
+      "tag":"sg",
+      "type":"urltest",
+      "outbounds":[
+        "{all}"
+      ],
+      "filter":[
+        {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
       ]
     },
     {
@@ -161,10 +185,6 @@
         "outbound": "direct"
       },
       {
-        "rule_set": ["geoip-netflix", "geosite-netflix"],
-        "outbound": "Netflix"
-      },
-      {
         "rule_set": ["geoip-apple", "geosite-apple"],
         "outbound": "direct"
       },
@@ -183,20 +203,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geoip-netflix",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/netflix.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-netflix",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/netflix.srs",
         "download_detour": "direct"
       },
       {
