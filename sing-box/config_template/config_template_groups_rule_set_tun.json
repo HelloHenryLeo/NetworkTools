@@ -106,22 +106,6 @@
       ]
     },
     {
-      "tag":"Apple",
-      "type":"selector",
-      "outbounds":[
-        "direct",
-        "Master"
-      ]
-    },
-    {
-      "tag":"China",
-      "type":"selector",
-      "outbounds":[
-        "direct",
-        "Master"
-      ]
-    },
-    {
       "tag":"AdBlock",
       "type":"selector",
       "outbounds":[
@@ -203,12 +187,16 @@
       },
       {
         "rule_set": ["geoip-apple", "geosite-apple"],
-        "outbound": "Apple"
+        "outbound": "direct"
       },
       {
         "rule_set": ["geoip-cn", "geosite-cn"],
-        "outbound": "China"
-      }
+        "outbound": "direct"
+      },
+      {
+        "protocol": "quic",
+        "outbound": "AdBlock"
+      },
     ],
     "rule_set": [
       {
