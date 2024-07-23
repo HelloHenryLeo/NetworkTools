@@ -202,7 +202,7 @@
         "outbound": "Netflix"
       },
       {
-        "rule_set": ["geoip-apple", "geosite-apple", "geosite-amazon"],
+        "rule_set": ["geoip-apple", "geosite-apple"],
         "outbound": "Apple"
       },
       {
