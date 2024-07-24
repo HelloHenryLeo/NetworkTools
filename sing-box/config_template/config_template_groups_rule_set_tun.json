@@ -32,7 +32,7 @@
         "disable_cache": true
       },
       {
-        "rule_set": "gfw",
+        "rule_set": "Global",
         "server": "proxyDns"
       },
       {
@@ -195,16 +195,7 @@
         "outbound": "Master"
       },
       {
-        "domain": [
-          "clash.razord.top",
-          "yacd.metacubex.one",
-          "yacd.haishan.me",
-          "d.metacubex.one"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "gfw",
+        "rule_set": "Global",
         "outbound": "Master"
       },
       {
@@ -229,10 +220,10 @@
         "download_detour": "direct"
       },
       {
-        "tag": "gfw",
+        "tag": "Global",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/gfw.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
         "download_detour": "Master"
       },
       {
