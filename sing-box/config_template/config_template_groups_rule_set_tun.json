@@ -163,7 +163,7 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "direct",
+    "final": "Master",
     "rules": [
       {
         "type": "logical",
@@ -200,17 +200,20 @@
         "outbound": "direct"
       },
       {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
         "rule_set": "gfw",
         "outbound": "Master"
       },
       {
+        "rule_set": "apple",
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
         "rule_set": "geoip-cn",
-        "invert": true,
-        "outbound": "Master"
+        "outbound": "direct"
       }
     ],
     "rule_set": [
@@ -222,17 +225,24 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-        "download_detour": "Master"
-      },
-      {
         "tag": "gfw",
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/gfw.srs",
+        "download_detour": "Master"
+      },
+      {
+        "tag": "apple",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
+        "download_detour": "Master"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
         "download_detour": "Master"
       }
     ]
