@@ -195,12 +195,12 @@
         "outbound": "Master"
       },
       {
-        "rule_set": "Global",
-        "outbound": "Master"
+        "rule_set": "Apple",
+        "outbound": "direct"
       },
       {
-        "rule_set": "apple",
-        "outbound": "direct"
+        "rule_set": "Global",
+        "outbound": "Master"
       },
       {
         "ip_is_private": true,
