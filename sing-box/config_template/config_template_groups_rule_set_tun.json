@@ -36,10 +36,6 @@
         "server": "proxyDns"
       },
       {
-        "rule_set": "geosite-geolocation-cn",
-        "server": "localDns"
-      },
-      {
         "rule_set": "apple",
         "server": "localDns"
       },
@@ -212,10 +208,6 @@
       },
       {
         "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "geosite-geolocation-cn",
         "outbound": "direct"
       },
       {
