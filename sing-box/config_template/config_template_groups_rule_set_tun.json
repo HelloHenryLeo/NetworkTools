@@ -1,250 +1,248 @@
 {
-  "log": {
-    "disabled": true,
-    "level": "info",
-    "timestamp": true
-  },
-  "dns": {
-    "servers": [
-      {
-        "tag": "proxyDns",
-        "address": "tls://8.8.8.8",
-        "detour": "Master"
-      },
-      {
-        "tag": "localDns",
-        "address": "https://223.5.5.5/dns-query",
-        "detour": "direct"
-      },
-      {
-        "tag": "block",
-        "address": "rcode://success"
-      }
-    ],
-    "rules": [
-      {
-        "rule_set": "adrules",
-        "server": "block"
-      },
-      {
-        "outbound": "any",
-        "server": "localDns",
-        "disable_cache": true
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "server": "proxyDns"
-      },
-      {
-        "rule_set": "apple",
-        "server": "localDns"
-      },
-      {
-        "clash_mode": "direct",
-        "server": "localDns"
-      },
-      {
-        "clash_mode": "global",
-        "server": "proxyDns"
-      }
-    ],
-    "final": "localDns",
-    "strategy": "prefer_ipv4"，
-    "fakeip": {
-  "enabled": true,
-  "inet4_range": "198.18.0.0/15",
-  "inet6_range": "fc00::/18"
-}
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag":"Master",
-      "type":"selector",
-      "outbounds":[
-        "hk",
-        "tw",
-        "sg",
-        "jp",
-        "us",
-        "Others-Proxy",
-        "All-Proxy",
-        "direct",
-        "block"
-      ]
-    },
-    {
-      "tag":"hk",
-      "type":"urltest",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
-      ]
-    },
-    {
-      "tag":"tw",
-      "type":"urltest",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}
-      ]
-    },
-    {
-      "tag":"sg",
-      "type":"urltest",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
-      ]
-    },
-    {
-      "tag":"jp",
-      "type":"urltest",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}
-      ]
-    },
-    {
-      "tag":"us",
-      "type":"urltest",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}
-      ]
-    },
-    {
-      "tag":"AdBlock",
-      "type":"selector",
-      "outbounds":[
-        "block",
-        "direct"
-      ]
-    },
-    {
-      "tag":"Others-Proxy",
-      "type":"selector",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"]}
-      ]
-    },
-    {
-      "tag":"All-Proxy",
-      "type":"selector",
-      "outbounds":[
-        "{all}",
-        "block"
-      ]
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "final": "Master",
-    "rules": [
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules":[
-          {
-            "port":53
-          },
-          {
-            "protocol": "dns"
-          }
-        ],
-        "outbound": "dns-out"
-      },
-      {
-        "rule_set": "adrules",
-        "outbound": "AdBlock"
-      },
-      {
-        "clash_mode": "direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "Master"
-      },
-      {
-        "rule_set": "apple",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "Master"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "geoip-cn",
-        "outbound": "direct"
-      }
-    ],
-    "rule_set": [
-      {
-        "tag": "adrules",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://adrules.top/adrules-singbox.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-geolocation-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-        "download_detour": "Master"
-      },
-      {
-        "tag": "apple",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
-        "download_detour": "Master"
-      },
-      {
-        "tag": "geoip-cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-        "download_detour": "Master"
-      }
-    ]
-  }
+	"log": {
+		"disabled": true,
+		"level": "info",
+		"timestamp": true
+	},
+	"dns": {
+		"servers": [{
+				"tag": "proxyDns",
+				"address": "tls://8.8.8.8",
+				"detour": "Master"
+			},
+			{
+				"tag": "localDns",
+				"address": "https://223.5.5.5/dns-query",
+				"detour": "direct"
+			},
+			{
+				"tag": "block",
+				"address": "rcode://success"
+			}
+		],
+		"rules": [{
+				"rule_set": "adrules",
+				"server": "block"
+			},
+			{
+				"outbound": "any",
+				"server": "localDns",
+				"disable_cache": true
+			},
+			{
+				"rule_set": "geosite-geolocation-!cn",
+				"server": "proxyDns"
+			},
+			{
+				"rule_set": "apple",
+				"server": "localDns"
+			},
+			{
+				"clash_mode": "direct",
+				"server": "localDns"
+			},
+			{
+				"clash_mode": "global",
+				"server": "proxyDns"
+			}
+		],
+		"final": "localDns",
+		"strategy": "prefer_ipv4"，
+		"fakeip": {
+			"enabled": true,
+			"inet4_range": "198.18.0.0/15",
+			"inet6_range": "fc00::/18"
+		}
+	},
+	"inbounds": [{
+		"type": "tun",
+		"inet4_address": "172.19.0.1/30",
+		"auto_route": true,
+		"strict_route": true,
+		"sniff": true
+	}],
+	"outbounds": [{
+			"tag": "Master",
+			"type": "selector",
+			"outbounds": [
+				"hk",
+				"tw",
+				"sg",
+				"jp",
+				"us",
+				"Others-Proxy",
+				"All-Proxy",
+				"direct",
+				"block"
+			]
+		},
+		{
+			"tag": "hk",
+			"type": "urltest",
+			"outbounds": [
+				"{all}"
+			],
+			"filter": [{
+				"action": "include",
+				"keywords": ["🇭🇰|HK|hk|香港|港|HongKong"]
+			}]
+		},
+		{
+			"tag": "tw",
+			"type": "urltest",
+			"outbounds": [
+				"{all}"
+			],
+			"filter": [{
+				"action": "include",
+				"keywords": ["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]
+			}]
+		},
+		{
+			"tag": "sg",
+			"type": "urltest",
+			"outbounds": [
+				"{all}"
+			],
+			"filter": [{
+				"action": "include",
+				"keywords": ["🇸🇬|SG|sg|新加坡|狮|Singapore"]
+			}]
+		},
+		{
+			"tag": "jp",
+			"type": "urltest",
+			"outbounds": [
+				"{all}"
+			],
+			"filter": [{
+				"action": "include",
+				"keywords": ["🇯🇵|JP|jp|日本|日|Japan"]
+			}]
+		},
+		{
+			"tag": "us",
+			"type": "urltest",
+			"outbounds": [
+				"{all}"
+			],
+			"filter": [{
+				"action": "include",
+				"keywords": ["🇺🇸|US|us|美国|美|United States"]
+			}]
+		},
+		{
+			"tag": "AdBlock",
+			"type": "selector",
+			"outbounds": [
+				"block",
+				"direct"
+			]
+		},
+		{
+			"tag": "Others-Proxy",
+			"type": "selector",
+			"outbounds": [
+				"{all}"
+			],
+			"filter": [{
+				"action": "exclude",
+				"keywords": ["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"]
+			}]
+		},
+		{
+			"tag": "All-Proxy",
+			"type": "selector",
+			"outbounds": [
+				"{all}",
+				"block"
+			]
+		},
+		{
+			"type": "direct",
+			"tag": "direct"
+		},
+		{
+			"type": "dns",
+			"tag": "dns-out"
+		},
+		{
+			"type": "block",
+			"tag": "block"
+		}
+	],
+	"route": {
+		"auto_detect_interface": true,
+		"final": "Master",
+		"rules": [{
+				"type": "logical",
+				"mode": "or",
+				"rules": [{
+						"port": 53
+					},
+					{
+						"protocol": "dns"
+					}
+				],
+				"outbound": "dns-out"
+			},
+			{
+				"rule_set": "adrules",
+				"outbound": "AdBlock"
+			},
+			{
+				"clash_mode": "direct",
+				"outbound": "direct"
+			},
+			{
+				"clash_mode": "global",
+				"outbound": "Master"
+			},
+			{
+				"rule_set": "apple",
+				"outbound": "direct"
+			},
+			{
+				"rule_set": "geosite-geolocation-!cn",
+				"outbound": "Master"
+			},
+			{
+				"ip_is_private": true,
+				"outbound": "direct"
+			},
+			{
+				"rule_set": "geoip-cn",
+				"outbound": "direct"
+			}
+		],
+		"rule_set": [{
+				"tag": "adrules",
+				"type": "remote",
+				"format": "binary",
+				"url": "https://adrules.top/adrules-singbox.srs",
+				"download_detour": "direct"
+			},
+			{
+				"tag": "geosite-geolocation-!cn",
+				"type": "remote",
+				"format": "binary",
+				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+				"download_detour": "Master"
+			},
+			{
+				"tag": "apple",
+				"type": "remote",
+				"format": "binary",
+				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
+				"download_detour": "Master"
+			},
+			{
+				"tag": "geoip-cn",
+				"type": "remote",
+				"format": "binary",
+				"url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+				"download_detour": "Master"
+			}
+		]
+	}
 }
