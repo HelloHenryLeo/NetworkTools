@@ -40,6 +40,10 @@
         "server": "localDns"
       },
       {
+        "rule_set": "geosite-geolocation-cn",
+        "server": "localDns"
+      },
+      {
         "clash_mode": "direct",
         "server": "localDns"
       },
@@ -208,6 +212,10 @@
       },
       {
         "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-geolocation-cn",
         "outbound": "direct"
       },
       {
