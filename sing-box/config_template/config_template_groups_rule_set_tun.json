@@ -53,8 +53,7 @@
     "fakeip": {
       "enabled": true,
       "inet4_range": "198.18.0.0/15"
-    },
-    "strategy": "prefer_ipv4"
+    }
 
 }
   },
