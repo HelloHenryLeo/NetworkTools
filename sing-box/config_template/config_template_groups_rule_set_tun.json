@@ -32,7 +32,7 @@
         "disable_cache": true
       },
       {
-        "rule_set": "proxy",
+        "rule_set": "geosite-geolocation-!cn.srs",
         "server": "proxyDns"
       },
       {
@@ -207,8 +207,8 @@
         "outbound": "direct"
       },
       {
-        "rule_set": "proxy",
-        "outbound": "Master"
+        "rule_set": "geosite-geolocation-!cn.srs",
+        "outbound": "direct"
       },
       {
         "ip_is_private": true,
@@ -232,10 +232,10 @@
         "download_detour": "direct"
       },
       {
-        "tag": "proxy",
+        "tag": "geosite-geolocation-!cn.srs",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/proxy.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
         "download_detour": "Master"
       },
       {
