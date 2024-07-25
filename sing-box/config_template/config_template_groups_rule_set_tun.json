@@ -1,6 +1,6 @@
 {
   "log": {
-    "disabled": false,
+    "disabled": true,
     "level": "debug",
     "timestamp": true
   },
@@ -34,6 +34,10 @@
       {
         "rule_set": "geosite-geolocation-!cn",
         "server": "proxyDns"
+      },
+      {
+        "rule_set": "geosite-geolocation-cn",
+        "server": "localDns"
       },
       {
         "rule_set": "apple",
@@ -211,6 +215,10 @@
         "outbound": "direct"
       },
       {
+        "rule_set": "geosite-geolocation-cn",
+        "outbound": "direct"
+      },
+      {
         "rule_set": "geoip-cn",
         "outbound": "direct"
       }
@@ -235,6 +243,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
+        "download_detour": "Master"
+      },
+      {
+        "tag": "geosite-geolocation-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
         "download_detour": "Master"
       },
       {
