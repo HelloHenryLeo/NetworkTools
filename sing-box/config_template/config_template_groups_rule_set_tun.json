@@ -32,7 +32,7 @@
         "disable_cache": true
       },
       {
-        "rule_set": "Global",
+        "rule_set": "geosite-geolocation-!cn",
         "server": "proxyDns"
       },
       {
@@ -195,11 +195,11 @@
         "outbound": "Master"
       },
       {
-        "rule_set": "Apple",
+        "rule_set": "apple",
         "outbound": "direct"
       },
       {
-        "rule_set": "Global",
+        "rule_set": "geosite-geolocation-!cn",
         "outbound": "Master"
       },
       {
@@ -220,7 +220,7 @@
         "download_detour": "direct"
       },
       {
-        "tag": "Global",
+        "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
