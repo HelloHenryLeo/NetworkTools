@@ -32,7 +32,7 @@
         "disable_cache": true
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
+        "rule_set": "proxy",
         "server": "proxyDns"
       },
       {
@@ -207,7 +207,7 @@
         "outbound": "direct"
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
+        "rule_set": "proxy",
         "outbound": "Master"
       },
       {
@@ -232,10 +232,10 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-geolocation-!cn",
+        "tag": "proxy",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/proxy.srs",
         "download_detour": "Master"
       },
       {
