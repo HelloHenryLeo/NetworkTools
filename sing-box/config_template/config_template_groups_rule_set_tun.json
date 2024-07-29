@@ -32,7 +32,7 @@
         "disable_cache": true
       },
       {
-        "rule_set": "geosite-geolocation-!cn.srs",
+        "rule_set": "geolocation-!cn",
         "server": "proxyDns"
       },
       {
@@ -207,7 +207,7 @@
         "outbound": "direct"
       },
       {
-        "rule_set": "geosite-geolocation-!cn.srs",
+        "rule_set": "geolocation-!cn",
         "outbound": "Master"
       },
       {
@@ -232,17 +232,17 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-geolocation-!cn.srs",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "apple",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
@@ -256,7 +256,7 @@
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
         "download_detour": "direct"
       }
     ]
