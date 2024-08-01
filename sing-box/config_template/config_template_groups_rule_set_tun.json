@@ -36,7 +36,7 @@
       {
         "clash_mode": "global",
         "server": "proxyDns"
-      }
+      },
       {
         "rule_set": "apple",
         "server": "localDns"
