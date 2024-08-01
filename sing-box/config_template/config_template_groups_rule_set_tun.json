@@ -1,14 +1,13 @@
 {
   "log": {
     "disabled": true,
-    "level": "debug",
-    "timestamp": true
+    "level": "trace"
   },
   "dns": {
     "servers": [
       {
         "tag": "proxyDns",
-        "address": "tls://8.8.8.8",
+        "address": "https://8.8.8.8/dns-query",
         "detour": "Master"
       },
       {
@@ -23,25 +22,12 @@
     ],
     "rules": [
       {
+        "outbound": "any",
+        "server": "localDns"
+      },
+      {
         "rule_set": "adrules",
         "server": "block"
-      },
-      {
-        "outbound": "any",
-        "server": "localDns",
-        "disable_cache": true
-      },
-      {
-        "rule_set": "geolocation-!cn",
-        "server": "proxyDns"
-      },
-      {
-        "rule_set": "apple",
-        "server": "localDns"
-      },
-      {
-        "rule_set": "cn",
-        "server": "localDns"
       },
       {
         "clash_mode": "direct",
@@ -50,6 +36,14 @@
       {
         "clash_mode": "global",
         "server": "proxyDns"
+      }
+      {
+        "rule_set": "apple",
+        "server": "localDns"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "localDns"
       }
     ],
     "final": "proxyDns",
@@ -65,7 +59,7 @@
       "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "sniff": true
+      "domain_strategy": "prefer-ipv4"
     }
   ],
   "outbounds": [
@@ -207,19 +201,10 @@
         "outbound": "direct"
       },
       {
-        "rule_set": "geolocation-!cn",
-        "outbound": "Master"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "cn",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "geoip-cn",
+        "rule_set": [
+          "geosite-cn",
+          "geoip-cn"
+        ],
         "outbound": "direct"
       }
     ],
@@ -239,14 +224,7 @@
         "download_detour": "Master"
       },
       {
-        "tag": "geolocation-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour": "Master"
-      },
-      {
-        "tag": "cn",
+        "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
