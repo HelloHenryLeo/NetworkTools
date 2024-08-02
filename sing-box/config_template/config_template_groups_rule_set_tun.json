@@ -34,11 +34,11 @@
         "server": "block"
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "server": "localDns"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "server": "proxyDns"
       },
       {
@@ -67,8 +67,7 @@
       "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "sniff": true,
-      "domain_strategy": "prefer_ipv4"
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -198,11 +197,11 @@
         "outbound": "AdBlock"
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "outbound": "direct"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "outbound": "Master"
       },
       {
