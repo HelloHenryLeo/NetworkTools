@@ -210,6 +210,10 @@
         "outbound": "direct"
       },
       {
+        "rule_set": "geosite-!cn",
+        "outbound": "Master"
+      },
+      {
         "rule_set": [
           "geosite-cn",
           "geoip-cn"
