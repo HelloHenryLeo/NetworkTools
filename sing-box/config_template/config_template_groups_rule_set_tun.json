@@ -141,7 +141,8 @@
       "type":"selector",
       "outbounds":[
         "block",
-        "direct"
+        "direct",
+        "Master"
       ]
     },
     {
