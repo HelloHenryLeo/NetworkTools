@@ -42,11 +42,10 @@
         "server": "proxyDns"
       },
       {
-        "rule_set": "apple",
-        "server": "localDns"
-      },
-      {
-        "rule_set": "geosite-cn",
+        "rule_set": [
+          "apple",
+          "geosite-cn"
+        ],
         "server": "localDns"
       },
       {
@@ -210,7 +209,7 @@
       },
       {
         "rule_set": [
-          "apple"
+          "apple",
           "geosite-cn",
           "geoip-cn"
         ],
