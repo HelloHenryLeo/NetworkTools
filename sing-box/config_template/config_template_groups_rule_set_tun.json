@@ -46,12 +46,15 @@
         "server": "localDns"
       },
       {
-        "rule_set": "geosite-!cn",
-        "server": "fakeipDns"
-      },
-      {
         "rule_set": "geosite-cn",
         "server": "localDns"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "fakeipDns"
       }
     ],
     "final": "proxyDns",
@@ -206,15 +209,8 @@
         "outbound": "Master"
       },
       {
-        "rule_set": "apple",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "geosite-!cn",
-        "outbound": "Master"
-      },
-      {
         "rule_set": [
+          "apple"
           "geosite-cn",
           "geoip-cn"
         ],
@@ -234,13 +230,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
