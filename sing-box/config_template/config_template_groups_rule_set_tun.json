@@ -16,6 +16,10 @@
         "detour": "direct"
       },
       {
+        "tag": "fakeipDns",
+        "address": "fakeip"
+      },
+      {
         "tag": "block",
         "address": "rcode://success"
       }
@@ -40,6 +44,10 @@
       {
         "rule_set": "apple",
         "server": "localDns"
+      },
+      {
+        "rule_set": "geosite-!cn",
+        "server": "fakeipDns"
       },
       {
         "rule_set": "geosite-cn",
@@ -222,6 +230,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
