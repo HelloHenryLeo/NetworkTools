@@ -7,12 +7,12 @@
     "servers": [
       {
         "tag": "proxyDns",
-        "address": "8.8.8.8",
+        "address": "tls://8.8.8.8",
         "detour": "Master"
       },
       {
         "tag": "localDns",
-        "address": "local",
+        "address": "https://223.6.6.6/dns-query",
         "detour": "direct"
       },
       {
