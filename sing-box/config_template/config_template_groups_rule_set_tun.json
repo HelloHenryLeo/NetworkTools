@@ -202,6 +202,10 @@
           "geoip-cn"
         ],
         "outbound": "direct"
+      },
+      {
+        "protocol": "quic",
+        "outbound": "AdBlock"
       }
     ],
     "rule_set": [
