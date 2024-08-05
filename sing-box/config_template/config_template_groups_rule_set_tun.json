@@ -43,10 +43,9 @@
       },
       {
         "rule_set": [
-          "apple",
+          "geosite-apple",
           "geosite-cn"
         ],
-        "query_type": "A",
         "server": "localDns"
       },
       {
@@ -198,7 +197,7 @@
       },
       {
         "rule_set": [
-          "apple",
+          "geosite-apple",
           "geosite-cn",
           "geoip-cn"
         ],
@@ -214,7 +213,7 @@
         "download_detour": "direct"
       },
       {
-        "tag": "apple",
+        "tag": "geosite-apple",
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs",
