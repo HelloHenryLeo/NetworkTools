@@ -54,11 +54,13 @@
       }
     ],
     "final": "proxyDns",
-    "strategy": "ipv4_only",
+    "strategy": "prefer_ipv4",
+    "independent_cache": true,
     "fakeip": {
       "enabled": true,
-      "inet4_range": "198.18.0.0/15"
-     }
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    }
   },
   "inbounds": [
     {
@@ -248,10 +250,10 @@
       "external_ui_download_detour": "direct",
       "default_mode": "rule"
     },
-  "cache_file": {
-    "enabled": true,
-    "store_fakeip": true,
-    "store_rdrc": true
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true,
+      "store_rdrc": true
     }
   }
 }
