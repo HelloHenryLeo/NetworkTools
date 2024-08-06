@@ -49,7 +49,7 @@
         "server": "localDns"
       },
       {
-        "query_type": "A",
+        "query_type": ["A","AAAA"],
         "server": "fakeipDns"
       }
     ],
