@@ -222,7 +222,7 @@
         "mode": "and",
         "rules": [
           {
-            "rule_set": "geosite-geolocation-!cn",
+            "rule_set": "geosite-!cn",
             "invert": true
           },
           {
