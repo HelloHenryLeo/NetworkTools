@@ -8,12 +8,14 @@
       {
         "tag": "proxyDns",
         "address": "tls://8.8.8.8",
-        "detour": "hk"
+        "detour": "hk",
+        "client_subnet": "114.114.114.114/24"
       },
       {
         "tag": "localDns",
         "address": "https://223.6.6.6/dns-query",
-        "detour": "direct"
+        "detour": "direct",
+        "client_subnet": "114.114.114.114/24"
       },
       {
         "tag": "fakeipDns",
