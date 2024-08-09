@@ -40,6 +40,10 @@
         "server": "localDns"
       },
       {
+        "clash_mode": "Block",
+        "server": "block"
+      },
+      {
         "clash_mode": "Global",
         "server": "proxyDns"
       },
@@ -206,6 +210,10 @@
       {
         "clash_mode": "Direct",
         "outbound": "direct"
+      },
+      {
+        "clash_mode": "Block",
+        "outbound": "block"
       },
       {
         "clash_mode": "Global",
