@@ -8,7 +8,7 @@
       {
         "tag": "proxyDns",
         "address": "tls://8.8.8.8",
-        "detour": "Master"
+        "detour": "hk"
       },
       {
         "tag": "localDns",
@@ -49,6 +49,20 @@
         "server": "localDns"
       },
       {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
+        ],
+        "server": "proxyDns"
+      },
+      {
         "query_type": "A",
         "server": "fakeipDns"
       }
@@ -74,8 +88,8 @@
       "tag":"Master",
       "type":"selector",
       "outbounds":[
-        "hk",
         "tw",
+        "hk",
         "sg",
         "jp",
         "us",
@@ -86,16 +100,6 @@
       ]
     },
     {
-      "tag":"hk",
-      "type":"urltest",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
-      ]
-    },
-    {
       "tag":"tw",
       "type":"urltest",
       "outbounds":[
@@ -103,6 +107,16 @@
       ],
       "filter":[
         {"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}
+      ]
+    },
+    {
+      "tag":"hk",
+      "type":"urltest",
+      "outbounds":[
+        "{all}"
+      ],
+      "filter":[
+        {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
       ]
     },
     {
@@ -204,6 +218,20 @@
         "outbound": "direct"
       },
       {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
+        ],
+        "outbound": "direct"
+      },
+      {
         "protocol": "quic",
         "outbound": "AdBlock"
       }
@@ -228,6 +256,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
