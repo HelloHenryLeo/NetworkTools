@@ -1,8 +1,8 @@
 #!name= QSearch
 #!desc= 🧰快捷转化搜索引擎 g -> google bd -> baidu
 #!author= HenryLeo
-#!homepage= https://github.com/HiHenryLeo
-#!icon= https://raw.githubusercontent.com/HiHenryLeo/NetworkTools/main/Loon/Icons/QSearch.PNG
+#!homepage= https://github.com/HelloHenryLeo
+#!icon= https://raw.githubusercontent.com/HelloHenryLeo/NetworkTools/main/Loon/Icons/QSearch.PNG
 
 [Rewrite]
 #bing -> google
