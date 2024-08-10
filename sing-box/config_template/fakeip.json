@@ -184,7 +184,7 @@
       ]
     },
     {
-      "tag":"all-proxy",
+      "tag":"all-proxies",
       "type":"selector",
       "outbounds":[
         "{all}",
