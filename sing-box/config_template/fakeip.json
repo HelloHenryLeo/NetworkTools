@@ -6,53 +6,53 @@
   "dns": {
     "servers": [
       {
-        "tag": "proxyDns",
+        "tag": "proxy-dns",
         "address": "tls://8.8.8.8",
         "detour": "hk",
         "client_subnet": "114.114.114.114/24"
       },
       {
-        "tag": "localDns",
+        "tag": "local-dns",
         "address": "https://223.6.6.6/dns-query",
         "detour": "direct",
         "client_subnet": "114.114.114.114/24"
       },
       {
-        "tag": "fakeipDns",
+        "tag": "fakeip-dns",
         "address": "fakeip"
       },
       {
-        "tag": "block",
+        "tag": "block-dns",
         "address": "rcode://success"
       }
     ],
     "rules": [
       {
         "outbound": "any",
-        "server": "localDns"
+        "server": "local-dns"
       },
       {
         "rule_set": "adrules",
-        "server": "block"
+        "server": "block-dns"
       },
       {
         "clash_mode": "Direct",
-        "server": "localDns"
+        "server": "local-dns"
       },
       {
         "clash_mode": "Block",
-        "server": "block"
+        "server": "block-dns"
       },
       {
         "clash_mode": "Global",
-        "server": "proxyDns"
+        "server": "proxy-dns"
       },
       {
         "rule_set": [
           "geosite-apple",
           "geosite-cn"
         ],
-        "server": "localDns"
+        "server": "local-dns"
       },
       {
         "type": "logical",
@@ -66,14 +66,14 @@
             "rule_set": "geoip-cn"
           }
         ],
-        "server": "proxyDns"
+        "server": "proxy-dns"
       },
       {
         "query_type": "A",
-        "server": "fakeipDns"
+        "server": "fakeip-dns"
       }
     ],
-    "final": "proxyDns",
+    "final": "proxy-dns",
     "strategy": "ipv4_only",
     "fakeip": {
       "enabled": true,
@@ -91,7 +91,7 @@
   ],
   "outbounds": [
     {
-      "tag":"Master",
+      "tag":"master",
       "type":"selector",
       "outbounds":[
         "tw",
@@ -99,8 +99,8 @@
         "sg",
         "jp",
         "us",
-        "Others-Proxy",
-        "All-Proxy",
+        "others",
+        "all-proxies",
         "direct",
         "block"
       ]
@@ -156,16 +156,25 @@
       ]
     },
     {
-      "tag":"AdBlock",
+      "tag":"ad-block",
       "type":"selector",
       "outbounds":[
         "block",
         "direct",
-        "Master"
+        "master"
       ]
     },
     {
-      "tag":"Others-Proxy",
+      "tag":"quic-block",
+      "type":"selector",
+      "outbounds":[
+        "block",
+        "direct",
+        "master"
+      ]
+    },
+    {
+      "tag":"others",
       "type":"selector",
       "outbounds":[
         "{all}"
@@ -175,7 +184,7 @@
       ]
     },
     {
-      "tag":"All-Proxy",
+      "tag":"all-proxy",
       "type":"selector",
       "outbounds":[
         "{all}",
@@ -197,7 +206,7 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "Master",
+    "final": "master",
     "rules": [
       {
         "protocol": "dns",
@@ -205,7 +214,7 @@
       },
       {
         "rule_set": "adrules",
-        "outbound": "AdBlock"
+        "outbound": "ad-block"
       },
       {
         "clash_mode": "Direct",
@@ -217,7 +226,7 @@
       },
       {
         "clash_mode": "Global",
-        "outbound": "Master"
+        "outbound": "master"
       },
       {
         "rule_set": [
@@ -243,7 +252,7 @@
       },
       {
         "protocol": "quic",
-        "outbound": "AdBlock"
+        "outbound": "quic-block"
       }
     ],
     "rule_set": [
