@@ -106,7 +106,7 @@
       ]
     },
     {
-      "tag":"tw",
+      "tag":"TW",
       "type":"urltest",
       "outbounds":[
         "{all}"
@@ -116,7 +116,7 @@
       ]
     },
     {
-      "tag":"hk",
+      "tag":"HK",
       "type":"urltest",
       "outbounds":[
         "{all}"
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "tag":"sg",
+      "tag":"SG",
       "type":"urltest",
       "outbounds":[
         "{all}"
@@ -136,7 +136,7 @@
       ]
     },
     {
-      "tag":"jp",
+      "tag":"JP",
       "type":"urltest",
       "outbounds":[
         "{all}"
@@ -146,7 +146,7 @@
       ]
     },
     {
-      "tag":"us",
+      "tag":"US",
       "type":"urltest",
       "outbounds":[
         "{all}"
