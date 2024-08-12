@@ -273,7 +273,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://adrules.top/adrules-singbox.srs",
-        "download_detour": "direct"
+        "download_detour": "hk"
       },
       {
         "tag": "geosite-apple",
