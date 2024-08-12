@@ -3,26 +3,7 @@
     "disabled": true,
     "level": "info"
   },
-  "experimental": {
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "secret": "",
-      "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "default_mode": "rule"
-    },
-  "cache_file": {
-    "enabled": true,
-    "store_fakeip": true,
-    "store_rdrc": true
-    }
-  },
   "dns": {
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15"
-    },
     "servers": [
       {
         "tag": "proxy-dns",
@@ -55,15 +36,15 @@
         "server": "block-dns"
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "server": "local-dns"
       },
       {
-        "clash_mode": "block",
+        "clash_mode": "Block",
         "server": "block-dns"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "server": "proxy-dns"
       },
       {
@@ -94,7 +75,11 @@
     ],
     "final": "proxy-dns",
     "independent_cache": true,
-    "strategy": "ipv4_only"
+    "strategy": "ipv4_only",
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15"
+    }
   },
   "inbounds": [
     {
@@ -233,15 +218,15 @@
         "outbound": "ad-block"
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "outbound": "direct"
       },
       {
-        "clash_mode": "block",
+        "clash_mode": "Block",
         "outbound": "block"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "outbound": "master"
       },
       {
@@ -308,5 +293,18 @@
         "download_detour": "direct"
       }
     ]
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "direct"
+    },
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true,
+      "store_rdrc": true
+    }
   }
 }
