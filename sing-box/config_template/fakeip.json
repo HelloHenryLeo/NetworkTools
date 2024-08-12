@@ -3,7 +3,26 @@
     "disabled": true,
     "level": "warn"
   },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "secret": "",
+      "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "direct",
+      "default_mode": "rule"
+    },
+  "cache_file": {
+    "enabled": true,
+    "store_fakeip": true,
+    "store_rdrc": true
+    }
+  },
   "dns": {
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15"
+    },
     "servers": [
       {
         "tag": "proxy-dns",
@@ -36,15 +55,15 @@
         "server": "block-dns"
       },
       {
-        "clash_mode": "Direct",
+        "clash_mode": "direct",
         "server": "local-dns"
       },
       {
-        "clash_mode": "Block",
+        "clash_mode": "block",
         "server": "block-dns"
       },
       {
-        "clash_mode": "Global",
+        "clash_mode": "global",
         "server": "proxy-dns"
       },
       {
@@ -74,11 +93,8 @@
       }
     ],
     "final": "proxy-dns",
-    "strategy": "ipv4_only",
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15"
-    }
+    "independent_cache": true,
+    "strategy": "ipv4_only"
   },
   "inbounds": [
     {
@@ -217,15 +233,15 @@
         "outbound": "ad-block"
       },
       {
-        "clash_mode": "Direct",
+        "clash_mode": "direct",
         "outbound": "direct"
       },
       {
-        "clash_mode": "Block",
+        "clash_mode": "block",
         "outbound": "block"
       },
       {
-        "clash_mode": "Global",
+        "clash_mode": "global",
         "outbound": "master"
       },
       {
