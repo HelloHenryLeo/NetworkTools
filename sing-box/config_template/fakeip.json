@@ -69,27 +69,22 @@
         "server": "proxy-dns"
       },
       {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
+        "query_type": "A",
         "server": "fakeip-dns"
       }
     ],
     "final": "proxy-dns",
     "independent_cache": true,
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "fakeip": {
       "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
+      "inet4_range": "198.18.0.0/15"
     }
   },
   "inbounds": [
     {
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "sniff": true
