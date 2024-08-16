@@ -262,7 +262,7 @@
     ],
     "rule_set": [
       {
-        "tag": " geosite-ads",
+        "tag": "geosite-ads",
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
