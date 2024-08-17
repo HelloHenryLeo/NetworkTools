@@ -30,7 +30,7 @@
         "server": "local-dns"
       },
       {
-        "rule_set": "geosite-category-ads-all",
+        "rule_set": "geosite-ad",
         "server": "block-dns"
       },
       {
@@ -212,7 +212,7 @@
         "outbound": "dns-out"
       },
       {
-        "rule_set": "geosite-category-ads-all",
+        "rule_set": "geosite-ad",
         "outbound": "ad-block"
       },
       {
@@ -260,10 +260,10 @@
     ],
     "rule_set": [
       {
-        "tag": "geosite-category-ads-all",
+        "tag": "geosite-ad",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/HelloHenryLeo/NetworkTools/main/sing-box/rules/geosite/MyAdBlock.srs",
         "download_detour": "direct"
       },
       {
