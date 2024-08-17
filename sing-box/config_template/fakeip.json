@@ -24,8 +24,7 @@
       },
       {
         "tag": "block-dns",
-        "address": "rcode://success",
-        "disable_cache": true
+        "address": "rcode://success"
       }
     ],
     "rules": [
@@ -76,12 +75,13 @@
       }
     ],
     "final": "proxy-dns",
-    "independent_cache": true,
     "strategy": "ipv4_only",
     "fakeip": {
       "enabled": true,
       "inet4_range": "198.18.0.0/15"
-    }
+    },
+    "disable_cache": true,
+    "independent_cache": true
   },
   "inbounds": [
     {
