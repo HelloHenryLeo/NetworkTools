@@ -15,9 +15,8 @@
       },
       {
         "tag": "local-dns",
-        "address": "quic://223.6.6.6",
-        "detour": "direct",
-        "client_subnet": "114.114.114.114/24"
+        "address": "local",
+        "detour": "direct"
       },
       {
         "tag": "fakeip-dns",
@@ -25,7 +24,8 @@
       },
       {
         "tag": "block-dns",
-        "address": "rcode://success"
+        "address": "rcode://success",
+        "disable_cache": true
       }
     ],
     "rules": [
