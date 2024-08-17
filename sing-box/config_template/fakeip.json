@@ -13,9 +13,7 @@
       },
       {
         "tag": "local-dns",
-        "address": "https://223.6.6.6/dns-query",
-        "detour": "direct",
-        "client_subnet": "114.114.114.114/24"
+        "address": "local"
       },
       {
         "tag": "fakeip-dns",
