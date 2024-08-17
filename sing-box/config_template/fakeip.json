@@ -1,7 +1,9 @@
 {
   "log": {
     "disabled": true,
-    "level": "info"
+    "level": "info",
+    "output": "box.log",
+    "timestamp": true
   },
   "dns": {
     "servers": [
@@ -13,7 +15,9 @@
       },
       {
         "tag": "local-dns",
-        "address": "local"
+        "address": "quic://223.6.6.6",
+        "detour": "direct",
+        "client_subnet": "114.114.114.114/24"
       },
       {
         "tag": "fakeip-dns",
@@ -48,7 +52,7 @@
       {
         "rule_set": [
           "geosite-apple",
-          "geosite-cn"
+          "geosite-geolocation-cn"
         ],
         "server": "local-dns"
       },
@@ -57,7 +61,7 @@
         "mode": "and",
         "rules": [
           {
-            "rule_set": "geolocation-!cn",
+            "rule_set": "geosite-geolocation-!cn",
             "invert": true
           },
           {
@@ -235,7 +239,7 @@
         "rule_set": [
           "geoip-cn",
           "geosite-apple",
-          "geosite-cn"
+          "geosite-geolocation-cn"
         ],
         "outbound": "direct"
       },
@@ -244,7 +248,7 @@
         "mode": "and",
         "rules": [
           {
-            "rule_set": "geolocation-!cn",
+            "rule_set": "geosite-geolocation-!cn",
             "invert": true
           },
           {
@@ -270,28 +274,28 @@
         "tag": "geosite-apple",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-cn",
+        "tag": "geosite-geolocation-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geolocation-!cn",
+        "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
         "download_detour": "direct"
       }
     ]
