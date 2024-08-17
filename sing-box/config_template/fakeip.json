@@ -95,8 +95,8 @@
       "tag":"master",
       "type":"selector",
       "outbounds":[
-        "tw",
         "hk",
+        "tw",
         "sg",
         "jp",
         "us",
@@ -107,16 +107,6 @@
       ]
     },
     {
-      "tag":"tw",
-      "type":"urltest",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}
-      ]
-    },
-    {
       "tag":"hk",
       "type":"urltest",
       "outbounds":[
@@ -124,6 +114,16 @@
       ],
       "filter":[
         {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
+      ]
+    },
+    {
+      "tag":"tw",
+      "type":"urltest",
+      "outbounds":[
+        "{all}"
+      ],
+      "filter":[
+        {"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}
       ]
     },
     {
