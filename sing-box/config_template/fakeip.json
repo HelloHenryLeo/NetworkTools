@@ -10,7 +10,7 @@
       {
         "tag": "proxy-dns",
         "address": "tls://8.8.8.8",
-        "detour": "master",
+        "detour": "proxy-dns",
         "client_subnet": "114.114.114.114/24"
       },
       {
@@ -160,6 +160,28 @@
       ]
     },
     {
+      "tag":"cn-direct",
+      "type":"selector",
+      "outbounds":[
+        "direct",
+        "master",
+        "block"
+      ]
+    },
+    {
+      "tag":"proxy-dns",
+      "type":"selector",
+      "outbounds":[
+        "master",
+        "hk",
+        "tw",
+        "sg",
+        "us",
+        "jp",
+        "direct"
+      ]
+    },
+    {
       "tag":"ad-block",
       "type":"selector",
       "outbounds":[
@@ -242,7 +264,7 @@
           "geosite-apple",
           "geosite-geolocation-cn"
         ],
-        "outbound": "direct"
+        "outbound": "cn-direct"
       },
       {
         "type": "logical",
@@ -256,7 +278,7 @@
             "rule_set": "geoip-cn"
           }
         ],
-        "outbound": "direct"
+        "outbound": "cn-direct"
       },
       {
         "protocol": "quic",
