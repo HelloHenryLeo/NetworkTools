@@ -15,7 +15,9 @@
       },
       {
         "tag": "local-dns",
-        "address": "dhcp://auto"
+        "address": "https://223.6.6.6/dns-query",
+        "detour": "local-dns",
+        "client_subnet": "114.114.114.114/24"
       },
       {
         "tag": "fakeip-dns",
@@ -177,6 +179,19 @@
         "us",
         "jp",
         "direct"
+      ]
+    },
+    {
+      "tag":"local-dns",
+      "type":"selector",
+      "outbounds":[
+        "direct",
+        "master",
+        "hk",
+        "tw",
+        "sg",
+        "us",
+        "jp"
       ]
     },
     {
