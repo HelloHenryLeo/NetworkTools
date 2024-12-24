@@ -161,6 +161,8 @@
       },
       {
         "rule_set": [
+          "geoip-private",
+          "geosite-private",
           "geoip-cn",
           "geosite-geolocation-cn"
         ],
@@ -179,13 +181,16 @@
           }
         ],
         "outbound": "direct"
-      },
-      {
-        "protocol": "quic",
-        "outbound": "block"
       }
     ],
     "rule_set": [
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/private.srs",
+        "download_detour": "direct"
+      },
       {
         "tag": "geosite-geolocation-cn",
         "type": "remote",
@@ -198,6 +203,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/private.srs",
         "download_detour": "direct"
       },
       {
