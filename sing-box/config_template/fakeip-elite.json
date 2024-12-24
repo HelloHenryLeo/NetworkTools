@@ -34,10 +34,6 @@
         "server": "local-dns"
       },
       {
-        "rule_set": "geosite-ad",
-        "server": "block-dns"
-      },
-      {
         "clash_mode": "Direct",
         "server": "local-dns"
       },
