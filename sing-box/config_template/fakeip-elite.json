@@ -98,20 +98,20 @@
       "tag":"master",
       "type":"selector",
       "outbounds":[
-        "hk",
+        "tw",
         "all-proxies",
         "direct",
         "block"
       ]
     },
     {
-      "tag":"hk",
+      "tag":"tw",
       "type":"urltest",
       "outbounds":[
         "{all}"
       ],
       "filter":[
-        {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
+        {"action":"include","keywords":["(?i)台|tw|taiwan"]}
       ]
     },
     {
