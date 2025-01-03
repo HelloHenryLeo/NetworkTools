@@ -161,8 +161,6 @@
       },
       {
         "rule_set": [
-          "geoip-private",
-          "geosite-private",
           "geoip-cn",
           "geosite-geolocation-cn"
         ],
@@ -185,13 +183,6 @@
     ],
     "rule_set": [
       {
-        "tag": "geosite-private",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/private.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geosite-geolocation-cn",
         "type": "remote",
         "format": "binary",
@@ -206,13 +197,6 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-private",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/private.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
@@ -224,7 +208,7 @@
   "experimental": {
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
-      "external_ui": "webui-metacubexd",
+      "external_ui": "ui",
       "external_ui_download_url": "https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "direct"
     },
