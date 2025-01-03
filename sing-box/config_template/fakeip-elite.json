@@ -1,8 +1,8 @@
 {
   "log": {
-    "disabled": true,
-    "level": "info",
-    "output": "box.log",
+    "disabled": false,
+    "level": "error",
+    "output": "sing-box.log",
     "timestamp": true
   },
   "dns": {
@@ -78,7 +78,7 @@
       "inet4_range": "198.18.0.0/15",
       "inet6_range": "fc00::/18"
     },
-    "disable_cache": true,
+    "disable_cache": false,
     "independent_cache": true
   },
   "inbounds": [
@@ -88,6 +88,7 @@
         "172.18.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
+      "exclude_package": "com.vivo.pcsuite",
       "auto_route": true,
       "strict_route": true,
       "sniff": true
