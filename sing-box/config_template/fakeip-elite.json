@@ -78,12 +78,13 @@
       "inet4_range": "198.18.0.0/15",
       "inet6_range": "fc00::/18"
     },
-    "disable_cache": false,
+    "disable_cache": true,
     "independent_cache": true
   },
   "inbounds": [
     {
       "type": "tun",
+      "stack": "gvisor"
       "interface_name": "sing-box",
       "address": [
         "172.18.0.1/30",
