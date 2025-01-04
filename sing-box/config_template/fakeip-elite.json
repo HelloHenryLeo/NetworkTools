@@ -84,7 +84,7 @@
   "inbounds": [
     {
       "type": "tun",
-      "stack": "gvisor"
+      "stack": "gvisor",
       "interface_name": "sing-box",
       "address": [
         "172.18.0.1/30",
